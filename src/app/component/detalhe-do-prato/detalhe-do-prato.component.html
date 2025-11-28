@@ -1,0 +1,66 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<div class="mobile-container" *ngIf="product">
+
+  <header class="detail-header">
+    <div class="header-icons">
+      <a (click)="goBack()"><i class="fa-solid fa-arrow-left"></i></a>
+      <a (click)="toggleFavorite()">
+        <i [class]="isFavorite() ? 'fa-solid fa-heart' : 'fa-regular fa-heart'"></i>
+      </a>
+    </div>
+    <img [src]="product.image" [alt]="product.name" class="detail-product-image">
+  </header>
+
+  <main class="detail-content">
+    <h1>{{product.name}}</h1>
+
+    <div class="info-tags">
+      <div class="tag">
+        <i class="fa-solid fa-clock"></i>
+        <span>{{product.prepTime}}</span>
+      </div>
+      <div class="tag">
+        <i class="fa-solid fa-star"></i>
+        <span>{{product.rating}}</span>
+      </div>
+    </div>
+
+    <div class="price-quantity-section">
+      <span class="detail-price">R$ {{product.price.toFixed(2)}}</span>
+      <div class="quantity-selector">
+        <button class="quantity-btn" (click)="decreaseQuantity()">-</button>
+        <span class="quantity-number">{{quantity}}</span>
+        <button class="quantity-btn" (click)="increaseQuantity()">+</button>
+      </div>
+    </div>
+
+    <div class="description-section">
+      <h2>Descrição</h2>
+      <p>{{product.description}}</p>
+    </div>
+
+    <div class="ingredients-section">
+      <h2>Ingredientes</h2>
+      <ul>
+        <li *ngFor="let ingredient of product.ingredients">{{ingredient}}</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer class="detail-footer">
+    <div class="total-section">
+      <span>TOTAL</span>
+      <span class="total-price">R$ {{getTotal().toFixed(2)}}</span>
+    </div>
+    <button class="add-to-cart-btn" (click)="addToCart()">
+      <i class="fa-solid fa-plus"></i>
+      Adicionar ao carrinho
+    </button>
+  </footer>
+
+</div>

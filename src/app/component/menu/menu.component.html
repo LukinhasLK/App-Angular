@@ -1,0 +1,60 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<div class="mobile-container">
+
+  <header class="header">
+    <div class="search-bar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Procurar" [(ngModel)]="searchQuery" (input)="onSearch()">
+    </div>
+    <img src="img/user.png" alt="Avatar do Usuário" class="user-avatar">
+  </header>
+
+  <main>
+    <nav class="categories">
+      <ul>
+        <li *ngFor="let category of categories"
+            [class.active]="selectedCategory === category"
+            (click)="selectCategory(category)">
+          <div class="category-icon-wrapper">
+            <img [src]="'img/' + category.toLowerCase() + '.png'" [alt]="category">
+          </div>
+          <span>{{category}}</span>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="product-grid">
+      <a [routerLink]="['/detalhe', product.id]" class="product-link" *ngFor="let product of filteredProducts">
+        <article class="product-card">
+          <img [src]="product.image" [alt]="product.name">
+          <div class="product-info">
+            <h3>{{product.name}}</h3>
+            <span class="price">R$ {{product.price.toFixed(2)}}</span>
+            <div class="add-button" *ngIf="getItemQuantity(product.id) === 0" (click)="addToCart(product, $event)">
+              <i class="fa-solid fa-circle-plus"></i>
+            </div>
+            <div class="quantity-selected" *ngIf="getItemQuantity(product.id) > 0">
+              <i class="fa-solid fa-check"></i>
+              <span>{{getItemQuantity(product.id)}}</span>
+            </div>
+          </div>
+        </article>
+      </a>
+    </section>
+  </main>
+
+  <footer class="bottom-nav">
+    <a routerLink="/menu" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item"><i class="fa-solid fa-grip"></i></a>
+    <a routerLink="/historico" routerLinkActive="active" class="nav-item"><i class="fa-solid fa-clock-rotate-left"></i></a>
+    <a routerLink="/favoritos" routerLinkActive="active" class="nav-item"><i class="fa-regular fa-heart"></i></a>
+    <a routerLink="/carrinho" class="nav-item cart" [class.active]="cartItemCount > 0">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="cart-count" *ngIf="cartItemCount > 0">{{cartItemCount}}</span>
+    </a>
+  </footer>
+
+</div>

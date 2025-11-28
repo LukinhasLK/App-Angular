@@ -1,0 +1,182 @@
+/* Passo 1: Reset básico */
+root{
+  --cor-primaria :rgb(200,196,196,0.47);;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Passo 2: Centralizando o body e garantindo centralização total */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+/* Garantindo que o host do componente também seja centralizado */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Passo 3: Container principal - Formato Mobile */
+main {
+  width: 100%;
+  max-width: 350px; /* Largura típica de celular */
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Passo 4: Logo principal */
+main img:first-of-type {
+  width: 80px;
+  height: auto;
+  margin-bottom: 25px;
+}
+
+/* Passo 5: Título */
+h4 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+/* Passo 6: Formulário - Estilo Mobile */
+.Formulario {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Passo 7: Inputs - Estilo Mobile */
+.Formulario input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.Formulario input:focus {
+  outline: none;
+  border-color: #7451DE;
+  background-color: white;
+}
+
+/* Passo 8: Botão - Estilo Mobile */
+.Formulario button {
+  width: 100%;
+  padding: 15px;
+  background-color: #7451DE;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.Formulario button:hover {
+  background-color: #0056b3;
+}
+
+/* Passo 9: Texto e links */
+.Formulario p {
+  font-family: 'Roboto',sans-serif;
+  font-weight: 600;
+  color: #666;
+  font-size: 14px;
+  margin: 15px 0 10px 0;
+}
+
+/* Passo 10: Ícones sociais - Estilo Mobile Compacto */
+.Formulario img {
+  width: 28px;
+  height: 28px;
+  margin: 0 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.Formulario img:hover {
+  transform: scale(1.1);
+}
+
+/* Container para os ícones sociais ficarem lado a lado */
+.Formulario img#google,
+.Formulario img#apple {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin: 0 15px;
+  vertical-align: middle;
+}
+
+/* Div que contém as imagens sociais */
+.social-icons {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.Formulario a {
+  color: #7451DE;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.Formulario a:hover {
+  text-decoration: underline;
+}
+
+/* Removendo quebras de linha desnecessárias */
+br {
+  display: none;
+}
+
+/* Estilos específicos para elementos com ID */
+#Login {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+#Email,#Sobrenome, #Senha {
+  padding: 12px; /* Mantendo consistência com outros inputs */
+  border-radius: 20px; /* Mantendo consistência com o design principal */
+  border: 1px solid #C8C4C4 ;
+}
+
+#butao {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px; /* Mantendo consistência com o botão principal */
+  border-radius: 10px; /* Mantendo consistência com o design principal */
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Logo específica */
+#LOGO{
+  width: 150px;
+  height: 150px;
+  margin-bottom: 25px;
+}
