@@ -5,11 +5,11 @@
 /* Header da página de detalhe */
 .detail-header {
   height: 220px;
+  background-image: url('../../../assets/images/historico-background.png');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   position: relative;
-  /* Lembre-se de adicionar a imagem de fundo aqui se precisar */
-  //background-image: url('detalhamento/tela-detalhamento-backgroud.png');
 }
 
 .header-icons {

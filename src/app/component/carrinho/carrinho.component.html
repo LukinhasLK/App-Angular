@@ -5,9 +5,13 @@
 
 <div class="mobile-container">
   <header class="cart-header">
-    <a (click)="continueShopping()"><i class="fa-solid fa-arrow-left"></i></a>
-    <h1>Carrinho</h1>
-    <div></div>
+    <a (click)="continueShopping()" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i>
+    </a>
+    <div class="cart-badge">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span>{{cartItems.length}} Itens no carrinho</span>
+    </div>
   </header>
 
   <main class="cart-content">
@@ -21,42 +25,39 @@
     <div *ngIf="cartItems.length > 0">
       <div class="cart-items">
         <div class="cart-item" *ngFor="let item of cartItems">
+          <button class="quantity-btn plus-btn" (click)="increaseQuantity(item.product.id)">
+            <i class="fa-solid fa-plus"></i>
+          </button>
           <img [src]="item.product.image" [alt]="item.product.name">
           <div class="item-details">
             <h3>{{item.product.name}}</h3>
-            <p class="item-price">R$ {{item.product.price.toFixed(2)}}</p>
-            <div class="quantity-controls">
-              <button (click)="decreaseQuantity(item.product.id)">-</button>
-              <span>{{item.quantity}}</span>
-              <button (click)="increaseQuantity(item.product.id)">+</button>
-            </div>
+            <p class="item-price">R$ {{item.product.price.toFixed(2)}} <span class="unit">unidade</span></p>
           </div>
-          <div class="item-total">
-            <button class="remove-btn" (click)="removeItem(item.product.id)">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-            <p class="subtotal">R$ {{(item.product.price * item.quantity).toFixed(2)}}</p>
+          <div class="item-quantity">
+            <span>{{item.quantity}}</span>
           </div>
+          <button class="quantity-btn minus-btn" (click)="decreaseQuantity(item.product.id)">
+            <i class="fa-solid fa-minus"></i>
+          </button>
         </div>
       </div>
 
-      <div class="cart-summary">
-        <div class="summary-row">
-          <span>Subtotal</span>
-          <span>R$ {{total.toFixed(2)}}</span>
-        </div>
-        <div class="summary-row total-row">
-          <span>Total</span>
-          <span>R$ {{total.toFixed(2)}}</span>
-        </div>
-      </div>
     </div>
   </main>
 
   <footer class="cart-footer" *ngIf="cartItems.length > 0">
+    <div class="delivery-fee">
+      <i class="fa-solid fa-motorcycle"></i>
+      <span>Taxa de Entrega</span>
+      <span class="fee-value">R$ 14,90</span>
+    </div>
+    <div class="cart-total">
+      <span class="total-label">TOTAL</span>
+      <span class="total-value">R$ {{(total + 14.90).toFixed(2).replace('.', ',')}}</span>
+    </div>
     <button class="checkout-btn" (click)="finalizarPedido()">
-      <i class="fa-solid fa-check"></i>
-      Finalizar Pedido
+      <i class="fa-solid fa-wallet"></i>
+      Realizar Pagamento
     </button>
   </footer>
 

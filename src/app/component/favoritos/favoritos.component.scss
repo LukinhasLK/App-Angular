@@ -1,6 +1,9 @@
 .favorites-header {
   padding: 20px;
-  background-color: var(--card-background);
+  background-image: url('../../../assets/images/historico-background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   box-shadow: var(--shadow);
   text-align: center;
 
