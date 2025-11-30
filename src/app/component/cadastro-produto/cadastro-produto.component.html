@@ -1,0 +1,77 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet">
+
+<main class="screen">
+  <header class="top-header">
+    <button class="back-button" type="button">
+      &#8592;
+    </button>
+  </header>
+
+  <div class="photo-circle">
+    <span class="photo-plus">+</span>
+  </div>
+
+  <section class="content">
+    <!-- form Angular -->
+<form class="form"
+      #formPrato="ngForm"
+      (ngSubmit)="adicionarAoCardapio()">
+
+  <label for="nomePrato" class="field-label">Nome Do Prato</label>
+  <input
+    type="text"
+    id="nomePrato"
+    name="name"
+    class="field-input"
+    placeholder="Exemplo: Lasanha"
+    [(ngModel)]="formData.name"
+    required
+  >
+
+  <label for="categoriaPrato" class="field-label">Categoria Do Prato</label>
+  <div class="select-wrapper">
+    <select
+      id="categoriaPrato"
+      name="category"
+      class="field-input"
+      [(ngModel)]="formData.category"
+      required>
+      <option value="">---</option>
+      <option value="Massas">Massas</option>
+      <option value="Pizzas">Pizzas</option>
+      <option value="Churrasco">Churrasco</option>
+      <option value="Bebidas">Bebidas</option>
+    </select>
+  </div>
+
+  <label for="valorPrato" class="field-label">Valor Do Prato</label>
+  <input
+    type="number"
+    id="valorPrato"
+    name="price"
+    class="field-input"
+    placeholder="R$0,00"
+    [(ngModel)]="formData.price"
+    required
+  >
+
+  <label for="ingrediente" class="field-label">Ingrediente</label>
+  <textarea
+    id="ingrediente"
+    name="ingredient"
+    class="field-input textarea-input"
+    [(ngModel)]="formData.ingredient"
+    required
+  ></textarea>
+
+  <button type="submit" class="primary-button">
+    <span class="primary-button-icon">+</span>
+    <span>Adicionar ao Cardápio</span>
+  </button>
+</form>
+
+  </section>
+</main>

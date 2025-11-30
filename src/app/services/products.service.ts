@@ -74,6 +74,18 @@ export class ProductsService {
     }
   ];
 
+    private nextId = this.products.length
+    ? Math.max(...this.products.map(p => p.id)) + 1
+    : 1;
+  
+      addProduct(data: Omit<Product, 'id'>) {
+    const newProduct: Product = {
+      id: this.nextId++,
+      ...data
+    };
+    this.products.push(newProduct);
+  }
+
   getProducts(): Product[] {
     return this.products;
   }

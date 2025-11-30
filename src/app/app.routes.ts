@@ -6,6 +6,7 @@ import { DetalheDoPratoComponent } from './component/detalhe-do-prato/detalhe-do
 import { CarrinhoComponent } from './component/carrinho/carrinho.component';
 import { FavoritosComponent } from './component/favoritos/favoritos.component';
 import { HistoricoComponent } from './component/historico/historico.component';
+import { CadastroProdutoComponent } from './component/cadastro-produto/cadastro-produto.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -15,5 +16,6 @@ export const routes: Routes = [
   { path: 'detalhe/:id', component: DetalheDoPratoComponent },
   { path: 'carrinho', component: CarrinhoComponent },
   { path: 'favoritos', component: FavoritosComponent },
-  { path: 'historico', component: HistoricoComponent }
+  { path: 'historico', component: HistoricoComponent },
+  { path: 'cadastro-produto', component: CadastroProdutoComponent }
 ];
