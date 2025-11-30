@@ -25,20 +25,22 @@
     <div *ngIf="cartItems.length > 0">
       <div class="cart-items">
         <div class="cart-item" *ngFor="let item of cartItems">
-          <button class="quantity-btn plus-btn" (click)="increaseQuantity(item.product.id)">
-            <i class="fa-solid fa-plus"></i>
-          </button>
           <img [src]="item.product.image" [alt]="item.product.name">
           <div class="item-details">
             <h3>{{item.product.name}}</h3>
-            <p class="item-price">R$ {{item.product.price.toFixed(2)}} <span class="unit">unidade</span></p>
+            <p class="item-price">R$ {{item.product.price.toFixed(2).replace('.', ',')}} <span class="unit">unidade</span></p>
           </div>
-          <div class="item-quantity">
-            <span>{{item.quantity}}</span>
+          <div class="quantity-controls">
+            <button class="quantity-btn" (click)="increaseQuantity(item.product.id)">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="item-quantity">
+              <span>{{item.quantity}}</span>
+            </div>
+            <button class="quantity-btn" (click)="decreaseQuantity(item.product.id)">
+              <i class="fa-solid fa-minus"></i>
+            </button>
           </div>
-          <button class="quantity-btn minus-btn" (click)="decreaseQuantity(item.product.id)">
-            <i class="fa-solid fa-minus"></i>
-          </button>
         </div>
       </div>
 
@@ -48,8 +50,10 @@
   <footer class="cart-footer" *ngIf="cartItems.length > 0">
     <div class="delivery-fee">
       <i class="fa-solid fa-motorcycle"></i>
-      <span>Taxa de Entrega</span>
-      <span class="fee-value">R$ 14,90</span>
+      <div class="delivery-info">
+        <span>Taxa de Entrega</span>
+        <span class="fee-value">R$ 14,90</span>
+      </div>
     </div>
     <div class="cart-total">
       <span class="total-label">TOTAL</span>
