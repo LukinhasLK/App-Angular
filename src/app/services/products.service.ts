@@ -10,7 +10,7 @@ export class ProductsService {
       id: 1,
       name: 'Churrasco com Legumes Grelhados',
       price: 28.00,
-      image: 'Tela Principal/prato-churrasco.png',
+      image: 'images/churasco.png',
       category: 'Churrasco',
       description: 'Um prato robusto com carnes variadas grelhadas, acompanhado de legumes tostados na brasa.',
       ingredients: ['150g de picanha ou contra-filé', '1 linguiça toscana', '½ cebola', '½ pimentão', '½ abobrinha', 'Sal grosso'],
@@ -21,7 +21,7 @@ export class ProductsService {
       id: 2,
       name: 'Pizza de Calabresa e Queijo',
       price: 18.00,
-      image: 'Tela Principal/prato-pizza.png',
+      image: 'images/pizzaNovo.png',
       category: 'Pizzas',
       description: 'Pizza tradicional com calabresa artesanal, queijo mussarela e orégano.',
       ingredients: ['Massa de pizza', '200g calabresa', '150g queijo mussarela', 'Molho de tomate', 'Orégano'],
@@ -32,7 +32,7 @@ export class ProductsService {
       id: 3,
       name: 'Espaguete ao Molho de Tomate',
       price: 12.00,
-      image: 'Tela Principal/prato-massa.png',
+      image: 'images/prato-de-macarrao.png',
       category: 'Massas',
       description: 'Espaguete tradicional com molho de tomate caseiro e manjericão fresco.',
       ingredients: ['200g espaguete', 'Molho de tomate', 'Alho', 'Azeite', 'Manjericão', 'Queijo parmesão'],
@@ -43,7 +43,7 @@ export class ProductsService {
       id: 4,
       name: 'Salada Verde Mediterrânea',
       price: 9.00,
-      image: 'Tela Principal/prato-salada.png',
+      image: 'images/salada.png',
       category: 'Todos',
       description: 'Salada fresca com mix de folhas, tomate cereja, pepino e molho especial.',
       ingredients: ['Mix de folhas', 'Tomate cereja', 'Pepino', 'Cebola roxa', 'Azeite', 'Limão'],
@@ -54,7 +54,7 @@ export class ProductsService {
       id: 5,
       name: 'Combinado de Sushi Simples',
       price: 32.00,
-      image: 'Tela Principal/prato-sushi.png',
+      image: 'images/Sushi.png',
       category: 'Todos',
       description: 'Seleção de sushis e sashimis frescos com wasabi e gengibre.',
       ingredients: ['Arroz para sushi', 'Salmão fresco', 'Atum', 'Alga nori', 'Wasabi', 'Gengibre'],
@@ -65,7 +65,7 @@ export class ProductsService {
       id: 6,
       name: 'Bolo com Sorvete de Baunilha',
       price: 14.00,
-      image: 'Tela Principal/prato-sorvete.png',
+      image: 'images/sobremesa.png',
       category: 'Todos',
       description: 'Bolo de chocolate quente servido com sorvete de baunilha cremoso.',
       ingredients: ['Bolo de chocolate', 'Sorvete de baunilha', 'Calda de chocolate', 'Raspas de chocolate'],
@@ -77,7 +77,7 @@ export class ProductsService {
     private nextId = this.products.length
     ? Math.max(...this.products.map(p => p.id)) + 1
     : 1;
-  
+
       addProduct(data: Omit<Product, 'id'>) {
     const newProduct: Product = {
       id: this.nextId++,

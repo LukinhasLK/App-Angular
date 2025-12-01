@@ -10,7 +10,7 @@
       <i class="fa-solid fa-magnifying-glass"></i>
       <input type="text" placeholder="Procurar" [(ngModel)]="searchQuery" (input)="onSearch()">
     </div>
-    <img src="img/user.png" alt="Avatar do Usuário" class="user-avatar">
+    <img src="images/avatar.png" alt="Avatar do Usuário" class="user-avatar">
   </header>
 
   <main>
@@ -20,7 +20,7 @@
             [class.active]="selectedCategory === category"
             (click)="selectCategory(category)">
           <div class="category-icon-wrapper">
-            <img [src]="'img/' + category.toLowerCase() + '.png'" [alt]="category">
+            <img [src]="'images/' + category.toLowerCase() + '.png'" [alt]="category">
           </div>
           <span>{{category}}</span>
         </li>
@@ -30,6 +30,9 @@
     <section class="product-grid">
       <a [routerLink]="['/detalhe', product.id]" class="product-link" *ngFor="let product of filteredProducts">
         <article class="product-card">
+          <button class="favorite-btn" (click)="toggleFavorite(product, $event)">
+            <i [class]="isFavorite(product.id) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'"></i>
+          </button>
           <img [src]="product.image" [alt]="product.name">
           <div class="product-info">
             <h3>{{product.name}}</h3>

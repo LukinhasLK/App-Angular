@@ -1,182 +1,212 @@
-/* Passo 1: Reset básico */
-root{
-  --cor-primaria :rgb(200,196,196,0.47);;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Garantir container mobile */
+:host {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  min-height: 100vh;
 }
 
-/* Passo 2: Centralizando o body e garantindo centralização total */
-body {
+@media (max-width: 420px) {
+  :host {
+    max-width: 100%;
+  }
+}
+
+.mobile-container {
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f5f5f5;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 20px;
 }
 
-/* Garantindo que o host do componente também seja centralizado */
-:host {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+.login-content {
   width: 100%;
+  max-width: 380px;
+  background-color: var(--card-background);
+  border-radius: 25px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Passo 3: Container principal - Formato Mobile */
-main {
-  width: 100%;
-  max-width: 350px; /* Largura típica de celular */
-  background-color: white;
-  border-radius: 15px;
-  padding: 30px 25px;
+.logo-section {
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Passo 4: Logo principal */
-main img:first-of-type {
-  width: 80px;
-  height: auto;
-  margin-bottom: 25px;
-}
-
-/* Passo 5: Título */
-h4 {
-  font-size: 24px;
-  color: #333;
   margin-bottom: 30px;
-  font-weight: 400;
+
+  .logo {
+    width: 120px;
+    height: auto;
+  }
 }
 
-/* Passo 6: Formulário - Estilo Mobile */
-.Formulario {
-  width: 100%;
+.login-form-section {
+  .login-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+.login-form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
+
+  .input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 0 15px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+
+    &:focus-within {
+      border-color: var(--primary-color);
+      background-color: white;
+    }
+
+    i {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-right: 12px;
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 15px 0;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+
+      &::placeholder {
+        color: var(--text-light);
+      }
+    }
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(116, 81, 222, 0.3);
+
+    &:hover {
+      background-color: #6142b8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(116, 81, 222, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0 15px 0;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    span {
+      padding: 0 15px;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      font-family: 'Poppins', sans-serif;
+    }
+  }
+
+  .social-login {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .social-btn {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      background-color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+
+      &:hover {
+        border-color: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .signup-link {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 5px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
-/* Passo 7: Inputs - Estilo Mobile */
-.Formulario input {
-  width: 100%;
-  padding: 15px;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  font-size: 20px;
-  font-family: 'Roboto', sans-serif;
-  background-color: #fafafa;
-  transition: all 0.3s ease;
-}
+/* Responsivo para telas menores */
+@media (max-width: 420px) {
+  .mobile-container {
+    padding: 15px;
+  }
 
-.Formulario input:focus {
-  outline: none;
-  border-color: #7451DE;
-  background-color: white;
-}
+  .login-content {
+    padding: 30px 20px;
+  }
 
-/* Passo 8: Botão - Estilo Mobile */
-.Formulario button {
-  width: 100%;
-  padding: 15px;
-  background-color: #7451DE;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-}
+  .logo-section .logo {
+    width: 100px;
+  }
 
-.Formulario button:hover {
-  background-color: #0056b3;
-}
-
-/* Passo 9: Texto e links */
-.Formulario p {
-  font-family: 'Roboto',sans-serif;
-  font-weight: 600;
-  color: #666;
-  font-size: 14px;
-  margin: 15px 0 10px 0;
-}
-
-/* Passo 10: Ícones sociais - Estilo Mobile Compacto */
-.Formulario img {
-  width: 28px;
-  height: 28px;
-  margin: 0 6px;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: transform 0.2s ease;
-  display: inline-block;
-}
-
-.Formulario img:hover {
-  transform: scale(1.1);
-}
-
-/* Container para os ícones sociais ficarem lado a lado */
-.Formulario img#google,
-.Formulario img#apple {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin: 0 15px;
-  vertical-align: middle;
-}
-
-/* Div que contém as imagens sociais */
-.social-icons {
-  text-align: center;
-  margin: 15px 0;
-}
-
-.Formulario a {
-  color: #7451DE;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.Formulario a:hover {
-  text-decoration: underline;
-}
-
-/* Removendo quebras de linha desnecessárias */
-br {
-  display: none;
-}
-
-/* Estilos específicos para elementos com ID */
-#Login {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-}
-
-#Email, #Senha {
-  padding: 12px; /* Mantendo consistência com outros inputs */
-  border-radius: 20px; /* Mantendo consistência com o design principal */
-  border: 1px solid #C8C4C4 ;
-}
-
-#butao {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px; /* Mantendo consistência com o botão principal */
-  border-radius: 10px; /* Mantendo consistência com o design principal */
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* Logo específica */
-#LOGO{
-  width: 150px;
-  height: 150px;
-  margin-bottom: 25px;
+  .login-form-section .login-title {
+    font-size: 1.5rem;
+  }
 }

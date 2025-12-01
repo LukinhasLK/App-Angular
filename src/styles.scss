@@ -1,5 +1,5 @@
 /* ============================================== */
-/* =========   ESTILOS GLOBAIS (global.css)   ========= */
+/* =========   ESTILOS GLOBAIS MOBILE-FIRST   ========= */
 /* ============================================== */
 
 /* ========= Variáveis e Estilos Globais ========= */
@@ -27,7 +27,7 @@ body {
   justify-content: center;
 }
 
-/* ========= Container Principal (Simula o celular) ========= */
+/* ========= Container Principal - Formato Mobile (MAX 420px) ========= */
 .mobile-container {
   max-width: 420px;
   width: 100%;
@@ -38,50 +38,9 @@ body {
   padding-bottom: 90px;
 }
 
-/* ============================================== */
-/* =========   MEDIA QUERIES - RESPONSIVIDADE   ========= */
-/* ============================================== */
-
-/* Mobile pequeno (até 375px) */
-@media (max-width: 375px) {
+/* Garantir que em telas menores que 420px, ocupe toda a largura */
+@media (max-width: 420px) {
   .mobile-container {
     max-width: 100%;
-    padding-bottom: 80px;
-  }
-}
-
-/* Tablet (768px a 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .mobile-container {
-    max-width: 768px;
-    padding-bottom: 100px;
-  }
-}
-
-/* Desktop pequeno (1025px a 1440px) */
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .mobile-container {
-    max-width: 900px;
-    padding-bottom: 110px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-  }
-
-  body {
-    padding: 20px 0;
-  }
-}
-
-/* Desktop grande (acima de 1440px) */
-@media (min-width: 1441px) {
-  .mobile-container {
-    max-width: 1200px;
-    padding-bottom: 120px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
-    border-radius: 25px;
-  }
-
-  body {
-    padding: 30px 0;
   }
 }

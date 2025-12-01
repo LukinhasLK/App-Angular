@@ -1,0 +1,13 @@
+/* Container mobile para o app principal */
+:host {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+@media (max-width: 420px) {
+  :host {
+    max-width: 100%;
+  }
+}
