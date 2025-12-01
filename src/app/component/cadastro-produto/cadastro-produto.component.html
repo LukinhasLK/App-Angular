@@ -1,17 +1,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-<main class="screen">
+<div class="mobile-container">
   <header class="top-header">
-    <button class="back-button" type="button">
-      &#8592;
+    <button class="back-button" type="button" (click)="voltar()">
+      <i class="fa-solid fa-arrow-left"></i>
     </button>
   </header>
 
   <div class="photo-circle">
-    <span class="photo-plus">+</span>
+    <i class="fa-solid fa-plus"></i>
   </div>
 
   <section class="content">
@@ -68,10 +68,10 @@
   ></textarea>
 
   <button type="submit" class="primary-button">
-    <span class="primary-button-icon">+</span>
+    <i class="fa-solid fa-circle-plus"></i>
     <span>Adicionar ao Cardápio</span>
   </button>
 </form>
 
   </section>
-</main>
+</div>

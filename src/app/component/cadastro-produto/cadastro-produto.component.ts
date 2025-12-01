@@ -26,6 +26,10 @@ export class CadastroProdutoComponent {
     private router: Router
   ) {}
 
+  voltar() {
+    this.router.navigate(['/menu']);
+  }
+
   adicionarAoCardapio() {
     // monta o objeto no formato do Product (sem id)
     this.productsService.addProduct({

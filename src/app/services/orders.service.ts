@@ -32,12 +32,14 @@ export class OrdersService {
   }
 
   createOrder(items: CartItem[], total: number): Order {
+    const orderId = Math.floor(1000 + Math.random() * 9000);
     const newOrder: Order = {
-      id: Date.now(),
+      id: orderId,
       items: items,
       total: total,
       date: new Date(),
-      status: 'Pendente'
+      status: 'Pendente',
+      deliveryFee: 14.90
     };
 
     this.orders.unshift(newOrder);

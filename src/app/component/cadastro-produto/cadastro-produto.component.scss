@@ -1,188 +1,185 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:host {
+  display: block;
+  width: 100%;
 }
 
-body {
+.mobile-container {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  background-color: white;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Roboto', sans-serif;
-  background-color: #e5e5e5;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 420px) {
+  .mobile-container {
+    max-width: 100%;
+  }
+
+  .photo-circle {
+    width: 140px;
+    height: 140px;
+
+    i {
+      font-size: 50px;
+    }
+  }
+
+  .content {
+    padding: 90px 16px 20px;
+  }
+}
+
+
+.top-header {
+  height: 180px;
+  background-image: url('../../../assets/images/historico-background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
   padding: 20px;
 }
 
-/* Para componentes Angular */
-:host {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100%;
-}
-
-/* Container do “celular” */
-.screen {
-  width: 100%;
-  max-width: 350px;   /* IGUAL ao exemplo enviado */
-  background-color: #f5f5f5;
-  border-radius: 24px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
-}
-
-
-/* Faixa de topo com imagem */
-.top-header {
-  height: 170px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-/* Botão de voltar (seta) */
 .back-button {
-  position: absolute;
-  top: 16px;
-  left: 12px;
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   border: none;
-  background: rgba(0, 0, 0, 0.3);
-  color: #ffffff;
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+
+  i {
+    font-size: 20px;
+    color: var(--text-color);
+  }
 }
 
-/* Círculo roxo central */
 .photo-circle {
   position: absolute;
-  top: 90px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
-  width: 150px;
-  height: 150px;
-  background-color: #7451DE;
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #6142b8 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  border: 6px solid #f5f5f5;
+  box-shadow: 0 8px 24px rgba(116, 81, 222, 0.4);
+  border: 6px solid white;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateX(-50%) scale(1.05);
+  }
+
+  i {
+    font-size: 60px;
+    color: white;
+  }
 }
 
-.photo-plus {
-  font-size: 40px;
-  color: #ffffff;
-  line-height: 1;
-}
-
-/* Área branca com campos */
 .content {
-  background-color: #ffffff;
-  border-radius: 26px 26px 0 0;
-  margin-top: 90px;          /* sobe um pouco para o círculo ficar “metade/ metade” */
-  padding: 80px 18px 20px;   /* espaço extra em cima por causa do círculo */
+  background-color: white;
+  padding: 100px 20px 20px;
+  min-height: calc(100vh - 180px);
 }
 
-/* Formulário */
 .form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px;
 }
 
-/* Labels */
 .field-label {
-  font-size: 13px;
+  font-size: 1rem;
   font-weight: 500;
-  color: #272727;
+  color: var(--text-color);
+  margin-bottom: 8px;
 }
 
-/* Inputs, select e textarea */
 .field-input {
   width: 100%;
-  border: 1px solid #d3d3d3;
-  border-radius: 6px;
-  padding: 10px 12px;
-  font-size: 13px;
-  font-family: 'Roboto', sans-serif;
-  background-color: #fafafa;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
   outline: none;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: var(--primary-color);
+  }
+
+  &::placeholder {
+    color: #b0b0b0;
+  }
 }
 
-.field-input:focus {
-  border-color: #7451DE;
-  background-color: #ffffff;
-}
-
-/* Placeholder mais clarinho */
-.field-input::placeholder {
-  color: #b3b3b3;
-}
-
-/* Textarea */
 .textarea-input {
-  min-height: 90px;
+  min-height: 120px;
   resize: none;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Select com ícone de seta */
 .select-wrapper {
   position: relative;
+
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+  }
+
+  &::after {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--text-color);
+    pointer-events: none;
+  }
 }
 
-.select-wrapper select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: #fafafa;
-}
-
-/* Seta do select */
-.select-wrapper::after {
-  content: "▾";
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 14px;
-  color: #555;
-  pointer-events: none;
-}
-
-/* Botão roxo de rodapé */
 .primary-button {
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 16px;
+  border-radius: 12px;
   border: none;
-  background-color: #7451DE;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 500;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
-}
+  transition: background-color 0.2s;
+  font-family: 'Poppins', sans-serif;
 
-/* Bolinha branca com + dentro do botão */
-.primary-button-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: #7451DE;
+  &:hover {
+    background-color: #6142b8;
+  }
+
+  i {
+    font-size: 1.5rem;
+  }
 }
