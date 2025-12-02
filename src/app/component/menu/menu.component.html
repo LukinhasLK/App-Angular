@@ -10,7 +10,29 @@
       <i class="fa-solid fa-magnifying-glass"></i>
       <input type="text" placeholder="Procurar" [(ngModel)]="searchQuery" (input)="onSearch()">
     </div>
-    <img src="images/avatar.png" alt="Avatar do Usuário" class="user-avatar">
+    <div class="avatar-wrapper">
+      <img src="images/avatar.png" alt="Avatar do Usuário" class="user-avatar" (click)="toggleMenu()">
+      <div class="dropdown-menu" *ngIf="showMenu">
+        <div class="dropdown-user-info">
+          <i class="fa-solid fa-user-circle"></i>
+          <span>{{getUserName()}}</span>
+        </div>
+        <div class="dropdown-divider"></div>
+        <a routerLink="/cadastro-produto" class="dropdown-item">
+          <i class="fa-solid fa-utensils"></i>
+          <span>Cadastrar Produto</span>
+        </a>
+        <a routerLink="/excluir-produto" class="dropdown-item">
+          <i class="fa-solid fa-trash"></i>
+          <span>Excluir Produto</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a (click)="logout()" class="dropdown-item logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Sair</span>
+        </a>
+      </div>
+    </div>
   </header>
 
   <main>
@@ -59,5 +81,26 @@
       <span class="cart-count" *ngIf="cartItemCount > 0">{{cartItemCount}}</span>
     </a>
   </footer>
+
+  <!-- Modal de logout -->
+  <div class="modal-overlay" *ngIf="showLogoutModal" (click)="cancelarLogout()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-icon logout-icon">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </div>
+      <h2>Sair da conta</h2>
+      <p>Tem certeza que deseja sair da sua conta?</p>
+      <div class="modal-actions">
+        <button class="btn-cancel" (click)="cancelarLogout()">
+          <i class="fa-solid fa-xmark"></i>
+          Cancelar
+        </button>
+        <button class="btn-confirm" (click)="confirmarLogout()">
+          <i class="fa-solid fa-check"></i>
+          Sair
+        </button>
+      </div>
+    </div>
+  </div>
 
 </div>

@@ -6,29 +6,39 @@
 <div class="mobile-container">
   <div class="cadastro-content">
     <div class="logo-section">
-      <img src="images/Delivery-Logo.png" alt="Logo do Aplicativo" class="logo">
+      <img src="images/logo so aplicativo 1.png" alt="Logo do Aplicativo" class="logo">
     </div>
 
     <div class="cadastro-form-section">
       <h1 class="cadastro-title">Cadastro</h1>
 
-      <form class="cadastro-form">
+      <form class="cadastro-form" (ngSubmit)="onSubmit()">
+        <div class="error-message" *ngIf="errorMessage">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          {{errorMessage}}
+        </div>
+
+        <div class="success-message" *ngIf="successMessage">
+          <i class="fa-solid fa-circle-check"></i>
+          {{successMessage}}
+        </div>
+
         <div class="input-group">
           <i class="fa-solid fa-user"></i>
-          <input type="text" placeholder="Nome" required>
+          <input type="text" placeholder="Nome" [(ngModel)]="name" name="name" required>
         </div>
 
         <div class="input-group">
           <i class="fa-solid fa-envelope"></i>
-          <input type="email" placeholder="E-mail" required>
+          <input type="email" placeholder="E-mail" [(ngModel)]="email" name="email" required>
         </div>
 
         <div class="input-group">
           <i class="fa-solid fa-lock"></i>
-          <input type="password" placeholder="Senha" required>
+          <input type="password" placeholder="Senha" [(ngModel)]="password" name="password" required>
         </div>
 
-        <button type="button" class="cadastro-btn">CADASTRAR</button>
+        <button type="submit" class="cadastro-btn">CADASTRAR</button>
 
         <div class="divider">
           <span>ou cadastre-se com</span>
@@ -36,10 +46,10 @@
 
         <div class="social-login">
           <button type="button" class="social-btn google">
-            <img src="google.png" alt="Google">
+            <img src="images/logGoogle.png" alt="Google">
           </button>
           <button type="button" class="social-btn apple">
-            <img src="apple-big-logo.png" alt="Apple">
+            <img src="images/logoApple.png" alt="Apple">
           </button>
         </div>
 

@@ -108,4 +108,13 @@ export class ProductsService {
       p.description.toLowerCase().includes(lowerQuery)
     );
   }
+
+  deleteProduct(id: number): boolean {
+    const index = this.products.findIndex(p => p.id === id);
+    if (index !== -1) {
+      this.products.splice(index, 1);
+      return true;
+    }
+    return false;
+  }
 }

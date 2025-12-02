@@ -54,4 +54,9 @@ export class OrdersService {
   getOrderById(id: number): Order | undefined {
     return this.orders.find(order => order.id === id);
   }
+
+  clearHistory(): void {
+    this.orders = [];
+    this.saveOrders();
+  }
 }

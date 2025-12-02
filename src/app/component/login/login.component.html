@@ -6,24 +6,29 @@
 <div class="mobile-container">
   <div class="login-content">
     <div class="logo-section">
-      <img src="images/Delivery-Logo.png" alt="Logo do Aplicativo" class="logo">
+      <img src="images/logo so aplicativo 1.png" alt="Logo do Aplicativo" class="logo">
     </div>
 
     <div class="login-form-section">
       <h1 class="login-title">Login</h1>
 
-      <form class="login-form">
+      <form class="login-form" (ngSubmit)="onSubmit()">
+        <div class="error-message" *ngIf="errorMessage">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          {{errorMessage}}
+        </div>
+
         <div class="input-group">
           <i class="fa-solid fa-envelope"></i>
-          <input type="email" placeholder="E-mail" required>
+          <input type="email" placeholder="E-mail" [(ngModel)]="email" name="email" required>
         </div>
 
         <div class="input-group">
           <i class="fa-solid fa-lock"></i>
-          <input type="password" placeholder="Senha" required>
+          <input type="password" placeholder="Senha" [(ngModel)]="password" name="password" required>
         </div>
 
-        <button type="button" class="login-btn">ENTRAR</button>
+        <button type="submit" class="login-btn">ENTRAR</button>
 
         <div class="divider">
           <span>ou faça login com</span>
@@ -31,10 +36,10 @@
 
         <div class="social-login">
           <button type="button" class="social-btn google">
-            <img src="google.png" alt="Google">
+            <img src="images/logGoogle.png" alt="Google">
           </button>
           <button type="button" class="social-btn apple">
-            <img src="apple-big-logo.png" alt="Apple">
+            <img src="images/logoApple.png" alt="Apple">
           </button>
         </div>
 

@@ -38,7 +38,7 @@
               <span>{{item.quantity}}</span>
             </div>
             <button class="quantity-btn" (click)="decreaseQuantity(item.product.id)">
-              <i class="fa-solid fa-minus"></i>
+              <i class="fa-solid" [ngClass]="item.quantity === 1 ? 'fa-trash' : 'fa-minus'"></i>
             </button>
           </div>
         </div>

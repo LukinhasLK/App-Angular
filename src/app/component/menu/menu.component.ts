@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../models/product.model';
 import { ProductsService } from '../../services/products.service';
 import { CartService } from '../../services/cart.service';
 import { FavoritesService } from '../../services/favorites.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -21,11 +22,15 @@ export class MenuComponent implements OnInit {
   selectedCategory = 'Todos';
   searchQuery = '';
   cartItemCount = 0;
+  showMenu = false;
+  showLogoutModal = false;
 
   constructor(
     private productsService: ProductsService,
     public cartService: CartService,
-    public favoritesService: FavoritesService
+    public favoritesService: FavoritesService,
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -86,5 +91,28 @@ export class MenuComponent implements OnInit {
 
   isFavorite(productId: number): boolean {
     return this.favoritesService.isFavorite(productId);
+  }
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+  }
+
+  getUserName(): string {
+    return this.authService.getCurrentUserName();
+  }
+
+  logout() {
+    this.showLogoutModal = true;
+    this.showMenu = false;
+  }
+
+  confirmarLogout() {
+    this.authService.logout();
+    this.showLogoutModal = false;
+    this.router.navigate(['/login']);
+  }
+
+  cancelarLogout() {
+    this.showLogoutModal = false;
   }
 }

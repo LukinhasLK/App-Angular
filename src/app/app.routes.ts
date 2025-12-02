@@ -7,6 +7,7 @@ import { CarrinhoComponent } from './component/carrinho/carrinho.component';
 import { FavoritosComponent } from './component/favoritos/favoritos.component';
 import { HistoricoComponent } from './component/historico/historico.component';
 import { CadastroProdutoComponent } from './component/cadastro-produto/cadastro-produto.component';
+import { ExcluirProdutoComponent } from './component/excluir-produto/excluir-produto.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,5 +18,6 @@ export const routes: Routes = [
   { path: 'carrinho', component: CarrinhoComponent },
   { path: 'favoritos', component: FavoritosComponent },
   { path: 'historico', component: HistoricoComponent },
-  { path: 'cadastro-produto', component: CadastroProdutoComponent }
+  { path: 'cadastro-produto', component: CadastroProdutoComponent },
+  { path: 'excluir-produto', component: ExcluirProdutoComponent }
 ];

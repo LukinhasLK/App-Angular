@@ -58,6 +58,38 @@
   flex-direction: column;
   gap: 20px;
 
+  .error-message {
+    background-color: #fee;
+    color: #e74c3c;
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #fcc;
+
+    i {
+      font-size: 1.1rem;
+    }
+  }
+
+  .success-message {
+    background-color: #efffef;
+    color: #27ae60;
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #c7f5c7;
+
+    i {
+      font-size: 1.1rem;
+    }
+  }
+
   .input-group {
     position: relative;
     display: flex;

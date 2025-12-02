@@ -16,6 +16,7 @@ export class HistoricoComponent implements OnInit {
   orders: Order[] = [];
   cartItemCount = 0;
   selectedOrder: Order | null = null;
+  showClearModal = false;
 
   constructor(
     private ordersService: OrdersService,
@@ -61,5 +62,19 @@ export class HistoricoComponent implements OnInit {
       hour: '2-digit',
       minute: '2-digit'
     });
+  }
+
+  openClearModal() {
+    this.showClearModal = true;
+  }
+
+  closeClearModal() {
+    this.showClearModal = false;
+  }
+
+  confirmarLimparHistorico() {
+    this.ordersService.clearHistory();
+    this.showClearModal = false;
+    this.selectedOrder = null;
   }
 }

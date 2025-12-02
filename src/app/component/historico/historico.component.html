@@ -14,6 +14,10 @@
 
   <div class="history-title">
     <h1>Histórico de Pedidos</h1>
+    <button *ngIf="orders.length > 0" class="clear-history-btn" (click)="openClearModal()">
+      <i class="fa-solid fa-trash"></i>
+      Limpar
+    </button>
   </div>
 
   <main class="history-content">
@@ -74,4 +78,25 @@
       <span class="cart-count" *ngIf="cartItemCount > 0">{{cartItemCount}}</span>
     </a>
   </footer>
+
+  <!-- Modal de limpar histórico -->
+  <div class="modal-overlay" *ngIf="showClearModal" (click)="closeClearModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-icon">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h2>Limpar Histórico</h2>
+      <p>Tem certeza que deseja limpar todo o histórico de pedidos? Esta ação não pode ser desfeita.</p>
+      <div class="modal-actions">
+        <button class="btn-cancel" (click)="closeClearModal()">
+          <i class="fa-solid fa-xmark"></i>
+          Cancelar
+        </button>
+        <button class="btn-confirm" (click)="confirmarLimparHistorico()">
+          <i class="fa-solid fa-check"></i>
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

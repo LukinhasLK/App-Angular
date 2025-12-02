@@ -10,11 +10,23 @@
     </button>
   </header>
 
-  <div class="photo-circle">
-    <i class="fa-solid fa-plus"></i>
+  <div class="photo-circle" (click)="fileInput.click()">
+    <img *ngIf="imagePreview" [src]="imagePreview" alt="Preview" class="preview-image">
+    <i *ngIf="!imagePreview" class="fa-solid fa-plus"></i>
+    <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" style="display: none;">
   </div>
 
   <section class="content">
+    <div class="success-message" *ngIf="successMessage">
+      <i class="fa-solid fa-circle-check"></i>
+      {{successMessage}}
+    </div>
+
+    <div class="error-message" *ngIf="errorMessage">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      {{errorMessage}}
+    </div>
+
     <!-- form Angular -->
 <form class="form"
       #formPrato="ngForm"

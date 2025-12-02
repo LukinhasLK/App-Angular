@@ -1,0 +1,61 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<div class="mobile-container">
+  <header class="top-header">
+    <button class="back-button" type="button" (click)="voltar()">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+    <h1 class="page-title">Excluir Produtos</h1>
+  </header>
+
+  <section class="content">
+    <div class="success-message" *ngIf="successMessage">
+      <i class="fa-solid fa-circle-check"></i>
+      {{successMessage}}
+    </div>
+
+    <div *ngIf="products.length === 0" class="empty-state">
+      <i class="fa-solid fa-box-open"></i>
+      <h2>Nenhum produto cadastrado</h2>
+      <p>Adicione produtos para gerenciá-los aqui</p>
+    </div>
+
+    <div class="products-list" *ngIf="products.length > 0">
+      <div class="product-item" *ngFor="let product of products">
+        <img [src]="product.image" [alt]="product.name" class="product-image">
+        <div class="product-info">
+          <h3>{{product.name}}</h3>
+          <p class="product-category">{{product.category}}</p>
+          <p class="product-price">R$ {{product.price.toFixed(2).replace('.', ',')}}</p>
+        </div>
+        <button class="delete-btn" (click)="excluirProduto(product.id, product.name)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal de confirmação -->
+  <div class="modal-overlay" *ngIf="confirmDeleteId !== null" (click)="cancelarExclusao()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-icon">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h2>Confirmar Exclusão</h2>
+      <p>Tem certeza que deseja excluir o produto <strong>"{{confirmDeleteName}}"</strong>?</p>
+      <div class="modal-actions">
+        <button class="btn-cancel" (click)="cancelarExclusao()">
+          <i class="fa-solid fa-xmark"></i>
+          Cancelar
+        </button>
+        <button class="btn-confirm" (click)="confirmarExclusao()">
+          <i class="fa-solid fa-check"></i>
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
