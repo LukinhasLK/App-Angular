@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "app-delivery-11f40",
+    "public": "dist/app/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
